@@ -1,0 +1,13 @@
+{
+  "name": "rect",
+  "repo": "component/rect",
+  "description": "Rect prototype (abstract, use it for dom, canvas, etc)",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
