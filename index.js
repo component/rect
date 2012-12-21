@@ -31,6 +31,7 @@ function Rect(x, y, w, h) {
 Rect.prototype.moveTo = function(x, y){
   this.x = x;
   this.y = y;
+  return this;
 };
 
 /**
@@ -44,6 +45,7 @@ Rect.prototype.moveTo = function(x, y){
 Rect.prototype.size = function(w, h){
   this.w = w;
   this.h = h;
+  return this;
 };
 
 /**
@@ -71,6 +73,8 @@ Rect.prototype.to = function(x, y){
 
   this.w = x - this.x;
   this.h = y - this.y;
+
+  return this;
 };
 
 /**
