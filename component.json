@@ -3,7 +3,7 @@
   "repo": "component/rect",
   "description": "Rect prototype (abstract, use it for dom, canvas, etc)",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["rect", "rectangle", "canvas"],
   "dependencies": {},
   "development": {},
   "license": "MIT",
