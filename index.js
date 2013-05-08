@@ -29,12 +29,8 @@ function Rect(x, y, w, h) {
  */
 
 Rect.prototype.moveTo = function(x, y){
-  this.x = x;
-  this.y = y;
-
-  this.xorigin = this.x;
-  this.yorigin = this.y;
-
+  this.x = this.ox = x;
+  this.y = this.oy = y;
   return this;
 };
 
@@ -63,14 +59,14 @@ Rect.prototype.size = function(w, h){
 Rect.prototype.to = function(x, y){
   var t;
 
-  if (x < this.xorigin) {
-    t = this.xorigin;
+  if (x < this.ox) {
+    t = this.ox;
     this.x = x;
     x = t;
   }
 
-  if (y < this.yorigin) {
-    t = this.yorigin;
+  if (y < this.oy) {
+    t = this.oy;
     this.y = y;
     y = t;
   }
