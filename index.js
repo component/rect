@@ -98,7 +98,7 @@ Rect.prototype.bounds = function(){
 /**
  * Returns true if two rects overlap.
  * 
- * @param {Object} b
+ * @param {Object} a
  * @return {Boolean}
  * @api public
  */
