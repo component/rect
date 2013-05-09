@@ -94,3 +94,21 @@ Rect.prototype.bounds = function(){
     h: this.h
   };
 };
+
+/**
+ * Returns true if two rects overlap.
+ * 
+ * @param {Object} b
+ * @return {Boolean}
+ * @api public
+ */
+
+Rect.prototype.intersects = function( b ){
+  var a = this.bounds();
+
+  return !(a.x > (b.x + b.w)
+    || (a.x + a.w) < b.x
+    || a.y > (b.y + b.h)
+    || (a.y + a.h) < b.y); 
+
+}

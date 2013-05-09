@@ -49,3 +49,19 @@ describe('Rect#bounds()', function(){
     assert(d.h == 40)
   })
 })
+
+describe('Rect#intersects()', function(){
+  it('should intersect', function(){
+    var r1 = new Rect(5, 10, 20, 40);
+    var r2 = new Rect(10, 20, 20, 40);
+    assert(r1.intersects(r2) === true);
+    assert(r2.intersects(r1) === true);
+  });
+
+  it('should not intersect', function(){
+    var r1 = new Rect(5, 10, 20, 40);
+    var r2 = new Rect(55, 40, 30, 30);
+    assert(r1.intersects(r2) === false);
+    assert(r2.intersects(r1) === false);
+  });
+})
