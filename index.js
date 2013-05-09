@@ -103,12 +103,12 @@ Rect.prototype.bounds = function(){
  * @api public
  */
 
-Rect.prototype.intersects = function( b ){
-  var a = this.bounds();
+Rect.prototype.intersects = function( a ){
+  var b = this.bounds();
 
-  return !(a.x > (b.x + b.w)
-    || (a.x + a.w) < b.x
-    || a.y > (b.y + b.h)
-    || (a.y + a.h) < b.y); 
+  return !(a.left > (b.x + b.w)
+    || (a.left + a.width) < b.x
+    || a.top > (b.y + b.h)
+    || (a.top + a.height) < b.y); 
 
 }
