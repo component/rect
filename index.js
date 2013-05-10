@@ -8,29 +8,29 @@ module.exports = Rect;
 /**
  * Initialize a new Rect.
  *
- * @param {Number} x
- * @param {Number} y
- * @param {Number} [w]
- * @param {Number} [h]
+ * @param {Number} left
+ * @param {Number} top
+ * @param {Number} [width]
+ * @param {Number} [height]
  * @api public
  */
 
-function Rect(x, y, w, h) {
-  this.moveTo(x, y);
-  this.size(w, h);
+function Rect(left, top, width, height) {
+  this.moveTo(left, top);
+  this.size(width, height);
 }
 
 /**
- * Move to (x, y).
+ * Move to (left, top).
  *
- * @param {Number} x
- * @param {Number} y
+ * @param {Number} left
+ * @param {Number} top
  * @api public
  */
 
-Rect.prototype.moveTo = function(x, y){
-  this.x = this.ox = x;
-  this.y = this.oy = y;
+Rect.prototype.moveTo = function(left, top){
+  this.left = this.ox = left;
+  this.top = this.oy = top;
   return this;
 };
 
@@ -43,36 +43,36 @@ Rect.prototype.moveTo = function(x, y){
  */
 
 Rect.prototype.size = function(w, h){
-  this.w = w;
-  this.h = h;
+  this.width = w;
+  this.height = h;
   return this;
 };
 
 /**
- * Move the second point to (x, y).
+ * Move the second point to (left, top).
  *
- * @param {Number} x
- * @param {Number} y
+ * @param {Number} left
+ * @param {Number} top
  * @api public
  */
 
-Rect.prototype.to = function(x, y){
+Rect.prototype.to = function(left, top){
   var t;
 
-  if (x < this.ox) {
+  if (left < this.ox) {
     t = this.ox;
-    this.x = x;
-    x = t;
+    this.left = left;
+    left = t;
   }
 
-  if (y < this.oy) {
+  if (top < this.oy) {
     t = this.oy;
-    this.y = y;
-    y = t;
+    this.top = top;
+    top = t;
   }
 
-  this.w = x - this.x;
-  this.h = y - this.y;
+  this.width = left - this.left;
+  this.height = top - this.top;
 
   return this;
 };
@@ -86,12 +86,12 @@ Rect.prototype.to = function(x, y){
 
 Rect.prototype.bounds = function(){
   return {
-    x: this.x,
-    y: this.y,
-    x2: this.x + this.w,
-    y2: this.y + this.h,
-    w: this.w,
-    h: this.h
+    x: this.left,
+    y: this.top,
+    x2: this.left + this.width,
+    y2: this.top + this.height,
+    w: this.width,
+    h: this.height
   };
 };
 
@@ -104,11 +104,8 @@ Rect.prototype.bounds = function(){
  */
 
 Rect.prototype.intersects = function(a){
-  var b = this.bounds();
-
-  return !(a.left > (b.x + b.w)
-    || (a.left + a.width) < b.x
-    || a.top > (b.y + b.h)
-    || (a.top + a.height) < b.y); 
-
+  return !(a.left > (this.left + this.width)
+    || (a.left + a.width) < this.left
+    || a.top > (this.top + this.height)
+    || (a.top + a.height) < this.top); 
 }
