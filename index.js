@@ -103,7 +103,7 @@ Rect.prototype.bounds = function(){
  * @api public
  */
 
-Rect.prototype.intersects = function( a ){
+Rect.prototype.intersects = function(a){
   var b = this.bounds();
 
   return !(a.left > (b.x + b.w)
