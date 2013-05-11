@@ -53,29 +53,25 @@ Rect.prototype.size = function(width, height){
 };
 
 /**
- * Move the second point to (left, top).
+ * Move the second point to (right, bottom).
  *
- * @param {Number} left
- * @param {Number} top
+ * @param {Number} right
+ * @param {Number} bottom
  * @api public
  */
 
-Rect.prototype.to = function(left, top){
-  var t;
-
-  if (left < this.ox) {
-    t = this.ox;
-    this.left = left;
-    left = t;
+Rect.prototype.to = function(right, bottom){
+  if (right < this.ox) {
+    this.left = right;
+    right = this.ox;
   }
 
-  if (top < this.oy) {
-    t = this.oy;
-    this.top = top;
-    top = t;
+  if (bottom < this.oy) {
+    this.top = bottom;
+    bottom = this.oy;
   }
 
-  this.size(left - this.left, top - this.top);
+  this.size(right - this.left, bottom - this.top);
 
   return this;
 };
