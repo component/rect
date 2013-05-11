@@ -37,6 +37,19 @@ describe('Rect#to(right, bottom)', function(){
   })
 })
 
+describe('Rect#moveTo(left, top)', function(){
+  it('should normalize', function(){
+    var r = new Rect(5, 10, 20, 40);
+    r.moveTo(0, 0);
+    assert(r.left == 0);
+    assert(r.top == 0);
+    assert(r.width == 20);
+    assert(r.height == 40);
+    assert(r.right == 20);
+    assert(r.bottom == 40);
+  })
+})
+
 describe('Rect#intersects()', function(){
   it('should intersect', function(){
     var r1 = new Rect(5, 10, 20, 40);

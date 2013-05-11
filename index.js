@@ -31,6 +31,9 @@ function Rect(left, top, width, height) {
 Rect.prototype.moveTo = function(left, top){
   this.left = this.ox = left;
   this.top = this.oy = top;
+
+  this.to(this.left + this.width, this.top + this.height);
+
   return this;
 };
 
