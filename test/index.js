@@ -2,13 +2,25 @@
 var Rect = require('..');
 var assert = require('better-assert');
 
+describe('Rect(left, top)', function(){
+  it('should populate the properties', function(){
+    var r = new Rect(5, 10);
+    assert(r.left == 5);
+    assert(r.top == 10);
+    assert(r.width == 0);
+    assert(r.height == 0);
+    assert(r.right == 5);
+    assert(r.bottom == 10);
+  })
+})
+
 describe('Rect(left, top, width, height)', function(){
   it('should populate the properties', function(){
     var r = new Rect(5, 10, 20, 40);
-    assert(r.left == 5)
-    assert(r.top == 10)
-    assert(r.width == 20)
-    assert(r.height == 40)
+    assert(r.left == 5);
+    assert(r.top == 10);
+    assert(r.width == 20);
+    assert(r.height == 40);
     assert(r.right == 25);
     assert(r.bottom == 50);
   })
