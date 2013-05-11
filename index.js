@@ -8,29 +8,32 @@ module.exports = Rect;
 /**
  * Initialize a new Rect.
  *
- * @param {Number} x
- * @param {Number} y
- * @param {Number} [w]
- * @param {Number} [h]
+ * @param {Number} left
+ * @param {Number} top
+ * @param {Number} [width]
+ * @param {Number} [height]
  * @api public
  */
 
-function Rect(x, y, w, h) {
-  this.moveTo(x, y);
-  this.size(w, h);
+function Rect(left, top, width, height) {
+  this.moveTo(left, top);
+  this.size(width, height);
 }
 
 /**
- * Move to (x, y).
+ * Move to (left, top).
  *
- * @param {Number} x
- * @param {Number} y
+ * @param {Number} left
+ * @param {Number} top
  * @api public
  */
 
-Rect.prototype.moveTo = function(x, y){
-  this.x = this.ox = x;
-  this.y = this.oy = y;
+Rect.prototype.moveTo = function(left, top){
+  this.left = this.ox = left;
+  this.top = this.oy = top;
+
+  this.to(this.left + this.width, this.top + this.height);
+
   return this;
 };
 
@@ -42,55 +45,51 @@ Rect.prototype.moveTo = function(x, y){
  * @api public
  */
 
-Rect.prototype.size = function(w, h){
-  this.w = w;
-  this.h = h;
-  return this;
-};
+Rect.prototype.size = function(width, height){
+  this.width = width;
+  this.height = height;
 
-/**
- * Move the second point to (x, y).
- *
- * @param {Number} x
- * @param {Number} y
- * @api public
- */
-
-Rect.prototype.to = function(x, y){
-  var t;
-
-  if (x < this.ox) {
-    t = this.ox;
-    this.x = x;
-    x = t;
-  }
-
-  if (y < this.oy) {
-    t = this.oy;
-    this.y = y;
-    y = t;
-  }
-
-  this.w = x - this.x;
-  this.h = y - this.y;
+  this.right = this.left + this.width;
+  this.bottom = this.top + this.height;
 
   return this;
 };
 
 /**
- * Return bounds.
+ * Move the second point to (right, bottom).
  *
- * @return {Object}
+ * @param {Number} right
+ * @param {Number} bottom
  * @api public
  */
 
-Rect.prototype.bounds = function(){
-  return {
-    x: this.x,
-    y: this.y,
-    x2: this.x + this.w,
-    y2: this.y + this.h,
-    w: this.w,
-    h: this.h
-  };
+Rect.prototype.to = function(right, bottom){
+  if (right < this.ox) {
+    this.left = right;
+    right = this.ox;
+  }
+
+  if (bottom < this.oy) {
+    this.top = bottom;
+    bottom = this.oy;
+  }
+
+  this.size(right - this.left, bottom - this.top);
+
+  return this;
 };
+
+/**
+ * Returns true if two rects overlap.
+ * 
+ * @param {Object} a
+ * @return {Boolean}
+ * @api public
+ */
+
+Rect.prototype.intersects = function(a){
+  return !(a.left > (this.right)
+    || (a.right) < this.left
+    || a.top > (this.bottom)
+    || (a.bottom) < this.top); 
+}
