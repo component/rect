@@ -16,7 +16,7 @@ module.exports = Rect;
  */
 
 function Rect(left, top, width, height) {
-  this.moveTo(left, top);
+  this.moveTo(left || 0, top || 0);
   this.size(width || 0, height || 0);
 }
 

@@ -2,8 +2,20 @@
 var Rect = require('..');
 var assert = require('better-assert');
 
+describe('Rect()', function(){
+  it('should default to 0', function(){
+    var r = new Rect;
+    assert(r.left == 0);
+    assert(r.top == 0);
+    assert(r.width == 0);
+    assert(r.height == 0);
+    assert(r.right == 0);
+    assert(r.bottom == 0);
+  })
+})
+
 describe('Rect(left, top)', function(){
-  it('should populate the properties', function(){
+  it('should default width and height to 0', function(){
     var r = new Rect(5, 10);
     assert(r.left == 5);
     assert(r.top == 10);
