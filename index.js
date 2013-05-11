@@ -6,9 +6,11 @@
 module.exports = Rect;
 
 /**
- * Initialize a new Rect.
+ * Initialize a new Rect with the given
+ * position and dimensions, or an object
+ * with the same properties.
  *
- * @param {Number} [left]
+ * @param {Number|Object} [left]
  * @param {Number} [top]
  * @param {Number} [width]
  * @param {Number} [height]
@@ -16,6 +18,14 @@ module.exports = Rect;
  */
 
 function Rect(left, top, width, height) {
+  if ('object' == typeof left) {
+    var o = left;
+    left = o.left;
+    top = o.top;
+    width = o.width;
+    height = o.height;
+  }
+
   this.moveTo(left || 0, top || 0);
   this.size(width || 0, height || 0);
 }

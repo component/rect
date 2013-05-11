@@ -14,6 +14,19 @@ describe('Rect()', function(){
   })
 })
 
+describe('Rect(object)', function(){
+  it('should populate with objects properties', function(){
+    var o = { top: 10, left: 5, width: 50, height: 50 };
+    var r = new Rect(o);
+    assert(r.left == 5);
+    assert(r.top == 10);
+    assert(r.width == 50);
+    assert(r.height == 50);
+    assert(r.right == 55);
+    assert(r.bottom == 60);
+  })
+})
+
 describe('Rect(left, top)', function(){
   it('should default width and height to 0', function(){
     var r = new Rect(5, 10);
