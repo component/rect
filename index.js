@@ -8,8 +8,8 @@ module.exports = Rect;
 /**
  * Initialize a new Rect.
  *
- * @param {Number} left
- * @param {Number} top
+ * @param {Number} [left]
+ * @param {Number} [top]
  * @param {Number} [width]
  * @param {Number} [height]
  * @api public
