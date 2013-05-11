@@ -24,30 +24,12 @@ describe('Rect#to(x, y)', function(){
     var r = new Rect(50, 100);
     r.to(20, 60);
 
-    var b = r.bounds();
-    assert(b.x == 20);
-    assert(b.x2 == 50);
-    assert(b.y == 60);
-    assert(b.y2 == 100);
+    assert(r.left == 20);
+    assert(r.width == 30);
+    assert(r.top == 60);
+    assert(r.height == 40);
   })
 })
-
-describe('Rect#bounds()', function(){
-  it('should return .x2 .y2', function(){
-    var r = new Rect(5, 10, 20, 40);
-    var d = r.bounds();
-    assert(d.x2 == 25)
-    assert(d.y2 == 50)
-  })
-
-  it('should return the others', function(){
-    var r = new Rect(5, 10, 20, 40);
-    var d = r.bounds();
-    assert(d.x == 5)
-    assert(d.y == 10)
-    assert(d.w == 20)
-    assert(d.h == 40)
-  })
 
 describe('Rect#intersects()', function(){
   it('should intersect', function(){
@@ -63,6 +45,4 @@ describe('Rect#intersects()', function(){
     assert(r1.intersects(r2) === false);
     assert(r2.intersects(r1) === false);
   });
-})
-
 })

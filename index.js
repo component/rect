@@ -78,24 +78,6 @@ Rect.prototype.to = function(left, top){
 };
 
 /**
- * Return bounds.
- *
- * @return {Object}
- * @api public
- */
-
-Rect.prototype.bounds = function(){
-  return {
-    x: this.left,
-    y: this.top,
-    x2: this.left + this.width,
-    y2: this.top + this.height,
-    w: this.width,
-    h: this.height
-  };
-};
-
-/**
  * Returns true if two rects overlap.
  * 
  * @param {Object} a
