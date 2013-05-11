@@ -2,7 +2,7 @@
   "name": "rect",
   "repo": "component/rect",
   "description": "Rect prototype (abstract, use it for dom, canvas, etc)",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "keywords": ["rect", "rectangle", "canvas"],
   "dependencies": {},
   "development": {},
