@@ -31,9 +31,7 @@ function Rect(left, top, width, height) {
 Rect.prototype.moveTo = function(left, top){
   this.left = this.ox = left;
   this.top = this.oy = top;
-
-  this.to(this.left + this.width, this.top + this.height);
-
+  this.to(left + this.width, top + this.height);
   return this;
 };
 
@@ -48,10 +46,8 @@ Rect.prototype.moveTo = function(left, top){
 Rect.prototype.size = function(width, height){
   this.width = width;
   this.height = height;
-
-  this.right = this.left + this.width;
-  this.bottom = this.top + this.height;
-
+  this.right = this.left + width;
+  this.bottom = this.top + height;
   return this;
 };
 
@@ -81,15 +77,15 @@ Rect.prototype.to = function(right, bottom){
 
 /**
  * Returns true if two rects overlap.
- * 
- * @param {Object} a
+ *
+ * @param {Object} other
  * @return {Boolean}
  * @api public
  */
 
-Rect.prototype.intersects = function(a){
-  return !(a.left > (this.right)
-    || (a.right) < this.left
-    || a.top > (this.bottom)
-    || (a.bottom) < this.top); 
+Rect.prototype.intersects = function(other){
+  return !(other.left > this.right
+    || other.right < this.left
+    || other.top > this.bottom
+    || other.bottom < this.top);
 }
