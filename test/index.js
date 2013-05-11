@@ -9,6 +9,8 @@ describe('Rect(x, y, w, h)', function(){
     assert(r.top == 10)
     assert(r.width == 20)
     assert(r.height == 40)
+    assert(r.right == 25);
+    assert(r.bottom == 50);
   })
 })
 
@@ -18,6 +20,8 @@ describe('Rect#to(x, y)', function(){
     r.to(30, 50);
     assert(r.width == 20);
     assert(r.height == 40);
+    assert(r.right == 30);
+    assert(r.bottom == 50);
   })
 
   it('should normalize', function(){
@@ -28,6 +32,8 @@ describe('Rect#to(x, y)', function(){
     assert(r.width == 30);
     assert(r.top == 60);
     assert(r.height == 40);
+    assert(r.right == 50);
+    assert(r.bottom == 100);
   })
 })
 

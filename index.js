@@ -42,9 +42,13 @@ Rect.prototype.moveTo = function(left, top){
  * @api public
  */
 
-Rect.prototype.size = function(w, h){
-  this.width = w;
-  this.height = h;
+Rect.prototype.size = function(width, height){
+  this.width = width;
+  this.height = height;
+
+  this.right = this.left + this.width;
+  this.bottom = this.top + this.height;
+
   return this;
 };
 
@@ -71,8 +75,7 @@ Rect.prototype.to = function(left, top){
     top = t;
   }
 
-  this.width = left - this.left;
-  this.height = top - this.top;
+  this.size(left - this.left, top - this.top);
 
   return this;
 };
@@ -86,8 +89,8 @@ Rect.prototype.to = function(left, top){
  */
 
 Rect.prototype.intersects = function(a){
-  return !(a.left > (this.left + this.width)
-    || (a.left + a.width) < this.left
-    || a.top > (this.top + this.height)
-    || (a.top + a.height) < this.top); 
+  return !(a.left > (this.right)
+    || (a.right) < this.left
+    || a.top > (this.bottom)
+    || (a.bottom) < this.top); 
 }
