@@ -46,10 +46,10 @@ Rect.prototype.moveTo = function(left, top){
 };
 
 /**
- * Resize to w x h
+ * Resize to `width` / `height`
  *
- * @param {Number} w
- * @param {Number} h
+ * @param {Number} width
+ * @param {Number} height
  * @api public
  */
 
