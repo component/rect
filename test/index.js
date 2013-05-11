@@ -2,7 +2,7 @@
 var Rect = require('..');
 var assert = require('better-assert');
 
-describe('Rect(x, y, w, h)', function(){
+describe('Rect(left, top, width, height)', function(){
   it('should populate the properties', function(){
     var r = new Rect(5, 10, 20, 40);
     assert(r.left == 5)
@@ -14,7 +14,7 @@ describe('Rect(x, y, w, h)', function(){
   })
 })
 
-describe('Rect#to(x, y)', function(){
+describe('Rect#to(right, bottom)', function(){
   it('should adjust size', function(){
     var r = new Rect(10, 10);
     r.to(30, 50);
