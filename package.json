@@ -4,5 +4,9 @@
   "devDependencies": {
     "mocha": "*",
     "better-assert": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/rect.git"
   }
 }
